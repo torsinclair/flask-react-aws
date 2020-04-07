@@ -29,11 +29,11 @@ phases:
       - docker-compose exec -T client npm run prettier:write
       - echo building images...
       - >
-      docker build \
-      --cache-from $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-users:prod \
-      -f services/users/Dockerfile.prod \
-      -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-users:prod \
-      ./services/users
+        docker build \
+        --cache-from $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-users:prod \
+        -f services/users/Dockerfile.prod \
+        -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-users:prod \
+        ./services/users
       - >
         docker build \
           --target builder \
