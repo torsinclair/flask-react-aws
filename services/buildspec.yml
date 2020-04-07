@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    AWS_REGION: "us-west-1"
+    AWS_REGION: "eu-west-2"
     REACT_APP_USERS_SERVICE_URL: "http://localhost:5001"
 
 phases:
@@ -19,12 +19,12 @@ phases:
       - >
         docker build \
           -f services/users/Dockerfile.prod \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-users:prod \
+          -t 090081672410.dkr.ecr.eu-west-2.amazonaws.com/test-driven-users:prod \
           ./services/users
       - >
         docker build \
           -f services/client/Dockerfile.prod \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-client:prod \
+          -t 090081672410.dkr.ecr.eu-west-2.amazonaws.com/test-driven-client:prod \
           --build-arg NODE_ENV=production \
           --build-arg REACT_APP_USERS_SERVICE_URL=$REACT_APP_USERS_SERVICE_URL \
           ./services/client
